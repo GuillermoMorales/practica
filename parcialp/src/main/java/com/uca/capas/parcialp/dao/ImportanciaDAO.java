@@ -1,11 +1,11 @@
-package com.uca.capas.dao;
+package com.uca.capas.parcialp.dao;
 
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
-import com.uca.capas.domain.Contribuyente;
-import com.uca.capas.domain.Importancia;
+import com.uca.capas.parcialp.domain.Contribuyente;
+import com.uca.capas.parcialp.domain.Importancia;
 
 public interface ImportanciaDAO{
 	

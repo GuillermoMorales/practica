@@ -1,4 +1,4 @@
-package com.uca.capas.config;
+package com.uca.capas.parcialp.config;
 
 import java.util.Properties;
 
@@ -24,7 +24,7 @@ public class JPAConfiguration {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(dataSource());
 		em.setPersistenceUnitName("capas");
-		em.setPackagesToScan("com.uca.capas.domain");
+		em.setPackagesToScan("com.uca.capas.parcialp.domain");
 		
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
@@ -49,9 +49,10 @@ public class JPAConfiguration {
 		 * En este caso el servidor postgres se encuentra en la misma maquina (localhost)
 		 * Cambiar a la IP correspondiente si en su caso no fuera asi
 		 */
-		dataSource.setUrl("jdbc:postgresql://192.168.0.1/practica");
+		dataSource.setUrl("jdbc:postgresql://localhost:5432/practica");
 		dataSource.setUsername("postgres");
 		dataSource.setPassword("postgres");
+		
 		
 		return dataSource;
 	}

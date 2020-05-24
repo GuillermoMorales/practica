@@ -1,4 +1,4 @@
-package com.uca.capas.service;
+package com.uca.capas.parcialp.service;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.uca.capas.dao.ContribuyenteDAO;
-import com.uca.capas.dao.ImportanciaDAO;
-import com.uca.capas.domain.Contribuyente;
-import com.uca.capas.domain.Importancia;
+import com.uca.capas.parcialp.dao.ContribuyenteDAO;
+import com.uca.capas.parcialp.dao.ImportanciaDAO;
+import com.uca.capas.parcialp.domain.Contribuyente;
+import com.uca.capas.parcialp.domain.Importancia;
 
 @Service
 public class ImportanciaServiceImpl implements ImportanciaService {

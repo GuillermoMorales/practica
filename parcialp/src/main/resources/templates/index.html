@@ -6,14 +6,64 @@
 </head>
 <body>
 
-<div class="col-lg-3" th:object="${importancia}">
-    <select class="form-control" >
-        <option value="">Select</option>
-        <option th:each="imp : ${importancia}"
-                th:value="${imp.codigoImportancia}"
-                th:text="${imp.codigoImportancia}+' : '+${imp.importancia}"></option>
-    </select>
-</div>
+<h1>Ingresar Nuevo Estudiante</h1>
+	<form method="post" th:action="@{/save}" th:object="${contribuyente}">
+          	<table cellpadding="10">          	          			
+          		<tr>
+          			<td><label>Nombre: </label></td>
+          			<td><input type="text" id="nombre" class="form-control" onfocus="this.value=''" th:field="*{nombre}" >
+          			<span th:errors="*{nombre}" style="color:#DE0000" ></span></td>
+          			
+          		</tr>
+          		
+          		<tr>
+          			<td><label>Apellido:</label></td>
+          			<td><input type="text" id="apellido" class="form-control" th:field="*{apellido}" >
+          			<span th:errors="*{apellido}" style="color:#DE0000" ></span></td>
+          			
+          		</tr> 
+          		<tr>
+          			<td><label>Nit:</label></td>
+          			<td><input type="number" id="nit" class="form-control" th:field="*{nit}" >
+          			<span th:errors="*{nit}" style="color:#DE0000" ></span></td>
+          			
+          		</tr>
+          		<tr>
+          			<td><label>Fecha :</label></td>
+          			<td><input type="text" id="fecha" class="form-control" th:field="*{fecha}" >
+	          			<script type="text/javascript">
+					        $(function () {
+					            $('#fecha').datepicker({
+					            	format: 'dd/mm/yyyy'
+					            });
+					        });
+					    </script>
+				    </td>
+          			
+          		</tr>
+          		<tr>
+          			
+    					<td><label>Importancia: </label></td>
+    					<td><select class="form-control"  th:field="*{importancia}">        				
+        					<option th:each="imp : ${importancia}"
+                			th:value="${imp.codigoImportancia}"
+                			th:text="${imp.codigoImportancia}+' : '+${imp.importancia}"></option>
+    					</select></td>
+					
+          		</tr>
+          		
+          		 
+          		       		          		
+          		<tr>
+          			<td><input type="submit"  class="btn btn-primary btn-block" value="Guardar" /></td>          			
+          		</td>
+          		</tr>
+          		
+          	</table>       
+          	</form>
+
+
+
 
 
 

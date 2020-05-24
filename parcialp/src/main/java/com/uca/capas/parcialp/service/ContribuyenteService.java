@@ -1,10 +1,10 @@
-package com.uca.capas.service;
+package com.uca.capas.parcialp.service;
 
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
-import com.uca.capas.domain.Contribuyente;
+import com.uca.capas.parcialp.domain.Contribuyente;
 
 
 public interface ContribuyenteService {

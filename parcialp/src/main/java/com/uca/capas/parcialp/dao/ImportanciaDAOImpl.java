@@ -1,4 +1,4 @@
-package com.uca.capas.dao;
+package com.uca.capas.parcialp.dao;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import javax.persistence.PersistenceContext;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
-import com.uca.capas.domain.Contribuyente;
-import com.uca.capas.domain.Importancia;
+import com.uca.capas.parcialp.domain.Contribuyente;
+import com.uca.capas.parcialp.domain.Importancia;
 
 @Repository
 public class ImportanciaDAOImpl implements ImportanciaDAO{

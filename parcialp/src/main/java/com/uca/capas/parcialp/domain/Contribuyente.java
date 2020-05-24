@@ -1,4 +1,4 @@
-package com.uca.capas.domain;
+package com.uca.capas.parcialp.domain;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -7,6 +7,7 @@ import java.time.Period;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -56,7 +57,7 @@ public class Contribuyente {
 	@Column(name = "f_fecha")
 	private Date fecha;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY,cascade = CascadeType.PERSIST)
 	@JoinColumn(name="c_importancia")
 	private Importancia importancia;
 
