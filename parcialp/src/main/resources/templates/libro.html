@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="card mb-3">
+          <div class="card-header">
+          	Informaci&oacute;n del Libro
+          </div>
+          
+          <div class="card-body">
+          <form method="post" th:action="@{/guardar16}" th:object="${libro}">
+          	<input type="hidden" name="ccliente" class="form-control" th:field="*{codigoLibro}" />
+          	<table cellpadding="10">
+          		
+          		<tr>
+          			<td><label>Titulo: </label></td>
+          			<td><input type="text" id="snombres" class="form-control" th:field="*{titulo}" ></td>
+          		</tr>
+          		<tr>
+          			<td><label>Autor:</label></td>
+          			<td><input type="text" id="sapellidos" class="form-control" th:field="*{autor}" ></td>
+          		</tr>
+          		
+          		<tr>
+          			
+    					<td><label>Categoria: </label></td>
+    					<td><select class="form-control"  th:field="*{categoria.c_categoria}">        				
+        					<option th:each="cat : ${listado}"
+                			th:value="${cat.c_categoria}"
+                			th:text="${cat.c_categoria}+':'+${cat.s_categoria}" ></option>
+    					</select></td>
+					
+          		</tr>
+          		<tr>
+          			<td><input type="submit" class="btn btn-primary btn-block" value="Guardar cambios" /></td>
+          		</tr>
+          	</table>
+          	</form>
+          </div>
+        </div>
+        
+</body>
+</html>

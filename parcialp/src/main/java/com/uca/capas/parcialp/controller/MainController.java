@@ -1,5 +1,8 @@
 package com.uca.capas.parcialp.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -17,6 +20,7 @@ import com.uca.capas.parcialp.service.ContribuyenteService;
 import com.uca.capas.parcialp.service.ImportanciaService;
 
 
+
 @Controller
 public class MainController {
 	
@@ -30,18 +34,58 @@ public class MainController {
 	public ModelAndView initMain()
 	{
 		ModelAndView mav = new ModelAndView();
-		List<Importancia> importancia = null;
+		List<Importancia> listado = null;
+		
 		try
 		{
-			importancia = importanciaService.findAll();
+			listado = importanciaService.findAll();
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		mav.addObject("importancia",importancia);
+		mav.addObject("listado",listado);		
 		mav.addObject("contribuyente", new Contribuyente());
 		mav.setViewName("index");
+		return mav;
+	}
+	@RequestMapping("/regresar")
+	public ModelAndView initR()
+	{
+		ModelAndView mav = new ModelAndView();
+		List<Importancia> listado = null;
+		
+		try
+		{
+			listado = importanciaService.findAll();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		mav.addObject("listado",listado);		
+		mav.addObject("contribuyente", new Contribuyente());
+		mav.setViewName("index");
+		return mav;
+	}
+	
+	
+	@RequestMapping("/lista")
+	public ModelAndView lista()
+	{
+		ModelAndView mav = new ModelAndView();
+		
+		List<Contribuyente> contribuyente= null;
+		try
+		{
+			contribuyente= contribuyenteService.findAll();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		mav.addObject("contribuyente",contribuyente);
+		mav.setViewName("lista");
 		return mav;
 	}
 	
@@ -50,17 +94,19 @@ public class MainController {
 		ModelAndView mav = new ModelAndView();
 		if (result.hasErrors())
 		{
-			mav.setViewName("index");
-			List<Importancia> importancia = null;
+			
+			List<Importancia> listado = null;
 			try
 			{
-				importancia = importanciaService.findAll();
+				listado = importanciaService.findAll();
 			}
 			catch(Exception e)
 			{
 				e.printStackTrace();
 			}
-			mav.addObject("importancia",importancia);
+			mav.addObject("hora",Calendar.getInstance().getTime().toString());
+			mav.addObject("listado",listado);
+			mav.setViewName("index");
 		}
 		else
 		{			

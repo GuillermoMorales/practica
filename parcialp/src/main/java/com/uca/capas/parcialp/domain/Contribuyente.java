@@ -23,6 +23,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -52,12 +53,12 @@ public class Contribuyente {
 	@Column(name="s_nit")
 	String nit;
 	
-	@NotNull(message = "El campo Fecha no puede quedar vacio")
+	@CreationTimestamp
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "f_fecha")
 	private Date fecha;
 	
-	@ManyToOne(fetch=FetchType.LAZY,cascade = CascadeType.PERSIST)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="c_importancia")
 	private Importancia importancia;
 

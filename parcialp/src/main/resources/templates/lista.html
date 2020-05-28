@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<table  id="tablaContribuyente"  cellspacing="0">
+              	<thead>
+              		<tr>
+              			<th>Nombre</th>
+              			<th>Apellido</th>
+              			<th>Nit</th>
+			            <th>Importancia</th>
+			            <th>Fecha</th>
+              		</tr>
+              	</thead>
+                <tbody>
+                	<tr th:each="v : ${contribuyente}">
+                		<td th:text="${v.nombre}"></td>
+                		<td th:text="${v.apellido}"></td>
+                		<td th:text="${v.nit}"></td>
+                		<td th:text="${v.importancia.s_importancia}"></td>
+                		<td th:text="${v.fechaDelegate}"></td>
+                		
+                	</tr>
+                </tbody>
+           	   </table>
+
+</body>
+</html>

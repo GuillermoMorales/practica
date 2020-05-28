@@ -23,30 +23,31 @@ public class Importancia {
 	@GeneratedValue(generator="importancia_c_importancia_seq", strategy = GenerationType.AUTO)
 	@SequenceGenerator(name = "importancia_c_importancia_seq", sequenceName = "public.importancia_c_importancia_seq", allocationSize = 1)
 	@Column(name="c_importancia")
-	private Integer codigoImportancia;
+	private Integer c_importancia;
 	
 	@Column(name="s_importancia")
-	private String  importancia;
+	private String  s_importancia;
 	
+	public Integer getC_importancia() {
+		return c_importancia;
+	}
+
+	public void setC_importancia(Integer c_importancia) {
+		this.c_importancia = c_importancia;
+	}
+
+	public String getS_importancia() {
+		return s_importancia;
+	}
+
+	public void setS_importancia(String s_importancia) {
+		this.s_importancia = s_importancia;
+	}
+
 	@OneToMany(mappedBy="importancia",fetch=FetchType.EAGER,cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Contribuyente> contribuyentes;
 
-	public Integer getCodigoImportancia() {
-		return codigoImportancia;
-	}
-
-	public void setCodigoImportancia(Integer codigoImportancia) {
-		this.codigoImportancia = codigoImportancia;
-	}
-
-	public String getImportancia() {
-		return importancia;
-	}
-
-	public void setImportancia(String importancia) {
-		this.importancia = importancia;
-	}
-
+	
 	public List<Contribuyente> getContribuyentes() {
 		return contribuyentes;
 	}

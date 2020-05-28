@@ -28,26 +28,15 @@
           			<span th:errors="*{nit}" style="color:#DE0000" ></span></td>
           			
           		</tr>
-          		<tr>
-          			<td><label>Fecha :</label></td>
-          			<td><input type="text" id="fecha" class="form-control" th:field="*{fecha}" >
-	          			<script type="text/javascript">
-					        $(function () {
-					            $('#fecha').datepicker({
-					            	format: 'dd/mm/yyyy'
-					            });
-					        });
-					    </script>
-				    </td>
-          			
-          		</tr>
+          		
+          		
           		<tr>
           			
     					<td><label>Importancia: </label></td>
-    					<td><select class="form-control"  th:field="*{importancia}">        				
-        					<option th:each="imp : ${importancia}"
-                			th:value="${imp.codigoImportancia}"
-                			th:text="${imp.codigoImportancia}+' : '+${imp.importancia}"></option>
+    					<td><select class="form-control"  th:field="*{importancia.c_importancia}">        				
+        					<option th:each="imp : ${listado}"
+                			th:value="${imp.c_importancia}"
+                			th:text="${imp.c_importancia}+':'+${imp.s_importancia}" ></option>
     					</select></td>
 					
           		</tr>
@@ -60,6 +49,9 @@
           		</tr>
           		
           	</table>       
+          	</form>
+          	<form th:action="@{/lista}">
+          		<input type="submit"  class="btn btn-primary btn-block" value="Listado" />
           	</form>
 
 
